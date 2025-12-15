@@ -1,8 +1,8 @@
 name: Docker Build and Push
 
 on:
-  pull_request:
-    branches: [ "master" ]
+  push:
+    branches: [ "master" ]   # use push instead of pull_request for pushing images
 
 jobs:
   build:
@@ -23,6 +23,8 @@ jobs:
 
     - name: Build and Push Docker image
       run: |
-        IMAGE_TAG=${{ secrets.DOCKER_USERNAME }}/my-image-name:latest
-        docker build -t $IMAGE_TAG .
-        docker push $IMAGE_TAG
+        IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/my-image-name
+        IMAGE_TAG=latest
+
+        docker build -t $IMAGE_NAME:$IMAGE_TAG .
+        docker push $IMAGE_NAME:$IMAGE_TAG
