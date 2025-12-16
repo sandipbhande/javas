@@ -33,8 +33,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            sandip2025/myapp:latest
-            sandip2025/myapp:${{ github.sha }}
+            kumar2025/myapp:latest
+            kumar2025/myapp:${{ github.sha }}
 
 
 
