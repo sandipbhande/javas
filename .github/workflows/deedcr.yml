@@ -56,7 +56,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: sandip2025/myapp:latest
-          args: monitor  # use `test` instead of `monitor` to fail the workflow on vulnerabilities
+          args: test # use `test` instead of `monitor` to fail the workflow on vulnerabilities
 
 
 
