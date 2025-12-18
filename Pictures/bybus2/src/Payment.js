@@ -1,23 +1,25 @@
 import React from 'react'
 
-import { QrReader } from 'react-qr-reader';
+import { QrScanner } from '@yudiel/react-qr-scanner';
  function Payment() {
 
+  const handleScan = (detectedCodes) => {
+    // The result is an array, we'll take the first one.
+    if (detectedCodes && detectedCodes.length > 0) {
+      console.log(detectedCodes[0].rawValue);
+    }
+  }
+
   const handleError = () => {
-    console.log("dta");
-    
+    console.error("QR Scanner Error");
   }
   
   return (
     <div>
-     <QrReader
-        delay={300}
+     <QrScanner
+        onScan={handleScan}
         onError={handleError}
-       
-        style={{ width: '100%' }}
       />
-     
-    
     </div>
     
   )
